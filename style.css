@@ -1,0 +1,443 @@
+/* ==========================================================================
+   🚦 SMART CITY TRAFFIC ANALYTICS SYSTEM - STYLING DIRECTIVES (style.css)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+/* --- Reset & Global App Config --- */
+html, body, [data-testid="stAppViewContainer"], .stApp {
+    font-family: 'Outfit', sans-serif !important;
+    background-color: #020617 !important;
+    color: #F8FAFC !important;
+    overflow-x: hidden;
+}
+
+/* Hide default Streamlit visual headers & menus */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+div[data-testid="stHeader"] {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+/* Remove main wrapper padding to expand content area */
+div[data-testid="stAppViewBlockContainer"] {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+    max-width: 1200px !important;
+}
+
+/* --- Dynamic Glowing Background Orbs --- */
+.glowing-bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -999;
+    pointer-events: none;
+    overflow: hidden;
+    background: #020617;
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(110px);
+    opacity: 0.35;
+    mix-blend-mode: screen;
+}
+
+.orb-1 {
+    width: 550px;
+    height: 550px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.4) 0%, rgba(37, 99, 235, 0) 70%);
+    top: -15%;
+    left: -15%;
+    animation: float-1 25s infinite alternate ease-in-out;
+}
+
+.orb-2 {
+    width: 650px;
+    height: 650px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.35) 0%, rgba(139, 92, 246, 0) 70%);
+    bottom: -20%;
+    right: -10%;
+    animation: float-2 30s infinite alternate ease-in-out;
+}
+
+.orb-3 {
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.25) 0%, rgba(6, 182, 212, 0) 70%);
+    top: 40%;
+    left: 55%;
+    animation: float-3 20s infinite alternate ease-in-out;
+}
+
+@keyframes float-1 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(120px, 80px) scale(1.15); }
+}
+
+@keyframes float-2 {
+    0% { transform: translate(0, 0) scale(1.15); }
+    100% { transform: translate(-150px, -90px) scale(0.9); }
+}
+
+@keyframes float-3 {
+    0% { transform: translate(0, 0) scale(0.9); }
+    100% { transform: translate(90px, -60px) scale(1.2); }
+}
+
+/* --- Native Streamlit Sidebar Styling Override --- */
+div[data-testid="stSidebar"] {
+    background-color: rgba(15, 23, 42, 0.75) !important;
+    backdrop-filter: blur(25px) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+div[data-testid="stSidebar"] div[data-testid="stSidebarUserContent"] {
+    padding-top: 1.5rem !important;
+}
+
+/* Style Sidebar Radio Buttons to look like a premium pill navigation menu */
+div[data-testid="stSidebarUserContent"] div[role="radiogroup"] {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+div[data-testid="stSidebarUserContent"] div[role="radiogroup"] label {
+    background: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid rgba(255, 255, 255, 0.04) !important;
+    border-radius: 14px !important;
+    padding: 12px 16px !important;
+    color: #94A3B8 !important;
+    font-weight: 500 !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+div[data-testid="stSidebarUserContent"] div[role="radiogroup"] label:hover {
+    background: rgba(255, 255, 255, 0.07) !important;
+    border-color: rgba(6, 182, 212, 0.3) !important;
+    color: #F8FAFC !important;
+    transform: translateX(4px);
+}
+
+div[data-testid="stSidebarUserContent"] div[role="radiogroup"] label[data-checked="true"] {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%) !important;
+    border: 1px solid rgba(37, 99, 235, 0.8) !important;
+    color: #06B6D4 !important;
+    font-weight: 700 !important;
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.25) !important;
+}
+
+/* Hide Streamlit default selection circle on styled options */
+div[data-testid="stSidebarUserContent"] div[role="radiogroup"] label div[data-testid="stMarkdownContainer"] p {
+    font-size: 0.95rem !important;
+}
+
+/* --- Glassmorphism Card Overlay --- */
+.glass-container {
+    background: rgba(15, 23, 42, 0.45) !important;
+    backdrop-filter: blur(16px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 20px !important;
+    padding: 24px !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35) !important;
+    margin-bottom: 24px !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.glass-container:hover {
+    border-color: rgba(6, 182, 212, 0.3) !important;
+    box-shadow: 0 12px 40px 0 rgba(6, 182, 212, 0.18) !important;
+    transform: translateY(-3px);
+}
+
+/* --- Custom Metric Styling (KPI Cards) --- */
+div[data-testid="stMetric"] {
+    background: rgba(15, 23, 42, 0.5) !important;
+    backdrop-filter: blur(16px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    border-radius: 20px !important;
+    padding: 20px !important;
+    box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.25) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    overflow: hidden;
+}
+
+div[data-testid="stMetric"]:hover {
+    transform: translateY(-5px);
+    border-color: rgba(37, 99, 235, 0.4) !important;
+    box-shadow: 0 12px 30px 0 rgba(37, 99, 235, 0.15) !important;
+}
+
+div[data-testid="stMetricValue"] {
+    font-size: 2rem !important;
+    font-weight: 800 !important;
+    background: linear-gradient(135deg, #F8FAFC 0%, #94A3B8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+div[data-testid="stMetricLabel"] > div {
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.8px !important;
+    color: #06B6D4 !important;
+}
+
+/* --- Buttons Redesign --- */
+div.stButton > button {
+    background: linear-gradient(135deg, #2563EB 0%, #8B5CF6 50%, #06B6D4 100%) !important;
+    color: #F8FAFC !important;
+    border: none !important;
+    border-radius: 14px !important;
+    padding: 12px 24px !important;
+    font-weight: 700 !important;
+    font-size: 1.05rem !important;
+    letter-spacing: 0.5px !important;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    width: 100%;
+}
+
+div.stButton > button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(6, 182, 212, 0.5) !important;
+    color: #FFFFFF !important;
+    background: linear-gradient(135deg, #06B6D4 0%, #2563EB 50%, #8B5CF6 100%) !important;
+}
+
+div.stButton > button:active {
+    transform: translateY(0.5px) !important;
+}
+
+/* Secondary Button Reset (st.download_button etc.) */
+div[data-testid="stDownloadButton"] > button {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #F8FAFC !important;
+    box-shadow: none !important;
+}
+div[data-testid="stDownloadButton"] > button:hover {
+    background: rgba(255, 255, 255, 0.12) !important;
+    border-color: rgba(6, 182, 212, 0.4) !important;
+    color: #06B6D4 !important;
+}
+
+/* --- Tabs Redesign (Pills Style) --- */
+.stTabs [data-baseweb="tab-list"] {
+    background-color: rgba(15, 23, 42, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    padding: 6px !important;
+    border-radius: 16px !important;
+    display: inline-flex !important;
+    margin-bottom: 20px !important;
+}
+
+.stTabs [data-baseweb="tab"] {
+    border-radius: 12px !important;
+    padding: 8px 18px !important;
+    color: #94A3B8 !important;
+    background-color: transparent !important;
+    border: none !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+.stTabs [data-baseweb="tab"][aria-selected="true"] {
+    background-color: rgba(37, 99, 235, 0.2) !important;
+    border: 1px solid rgba(37, 99, 235, 0.3) !important;
+    color: #06B6D4 !important;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    color: #F8FAFC !important;
+}
+
+.stTabs [data-baseweb="tab-highlight"] {
+    display: none !important; /* Hide default underline */
+}
+
+/* --- Form Fields & Sliders Customization --- */
+div[data-testid="stSlider"] > label {
+    color: #94A3B8 !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+}
+
+/* Slider Track Color overrides */
+div[data-testid="stSlider"] div[role="slider"] {
+    background-color: #06B6D4 !important;
+    border: 2px solid #F8FAFC !important;
+}
+
+div[data-testid="stSlider"] div[data-baseui="slider"] > div {
+    background: linear-gradient(90deg, #2563EB, #06B6D4) !important;
+}
+
+/* Text Inputs and SelectBoxes */
+div[data-baseweb="select"] > div, div[data-baseweb="input"] > div {
+    background-color: rgba(15, 23, 42, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 12px !important;
+    color: #F8FAFC !important;
+    transition: all 0.3s ease !important;
+}
+
+div[data-baseweb="select"] > div:hover, div[data-baseweb="input"] > div:hover {
+    border-color: rgba(6, 182, 212, 0.4) !important;
+}
+
+div[data-baseweb="select"] div, div[data-baseweb="input"] input {
+    color: #F8FAFC !important;
+}
+
+/* Adjust Streamlit native DataFrame containers */
+div[data-testid="stDataFrame"] {
+    background-color: rgba(15, 23, 42, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+}
+
+/* Success/Info Banners Glassmorphism Override */
+div[data-testid="stAlert"] {
+    background-color: rgba(15, 23, 42, 0.5) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 16px !important;
+    color: #F8FAFC !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+div[data-testid="stAlert"] div[role="alert"] {
+    background: transparent !important;
+}
+
+div[data-testid="stAlert"] svg {
+    color: #06B6D4 !important;
+}
+
+/* Custom Success alert green glow border */
+div[data-testid="stAlert"]:has(div[class*="success"]) {
+    border: 1px solid rgba(16, 185, 129, 0.3) !important;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15) !important;
+}
+
+/* Custom Info alert blue glow border */
+div[data-testid="stAlert"]:has(div[class*="info"]) {
+    border: 1px solid rgba(37, 99, 235, 0.3) !important;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.15) !important;
+}
+
+/* --- Hero Animation SVG Container --- */
+.hero-city-card {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.7) 0%, rgba(30, 41, 59, 0.4) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.hero-city-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.05), transparent);
+    transform: skewX(-25deg);
+    animation: sweep 8s infinite linear;
+}
+
+@keyframes sweep {
+    0% { transform: translateX(-150%) skewX(-25deg); }
+    100% { transform: translateX(150%) skewX(-25deg); }
+}
+
+.skyline-svg {
+    width: 100%;
+    height: 140px;
+}
+
+/* Cycling traffic light */
+.traffic-light-bulb {
+    animation: traffic-cycle 12s infinite steps(1);
+}
+@keyframes traffic-cycle {
+    0%, 33.33% { fill: #EF4444; filter: drop-shadow(0 0 8px #EF4444); } /* Red */
+    33.34%, 66.66% { fill: #F59E0B; filter: drop-shadow(0 0 8px #F59E0B); } /* Yellow */
+    66.67%, 100% { fill: #10B981; filter: drop-shadow(0 0 8px #10B981); } /* Green */
+}
+
+/* Moving cars along road paths */
+.car-dot-1 {
+    animation: drive-east 6s infinite linear;
+}
+.car-dot-2 {
+    animation: drive-west 8s infinite linear;
+    animation-delay: -2s;
+}
+.car-dot-3 {
+    animation: drive-east 10s infinite linear;
+    animation-delay: -4s;
+}
+
+@keyframes drive-east {
+    0% { cx: -20px; }
+    100% { cx: 820px; }
+}
+@keyframes drive-west {
+    0% { cx: 820px; }
+    100% { cx: -20px; }
+}
+
+/* Custom Footer Styling */
+.footer-container {
+    text-align: center;
+    padding: 30px 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(15, 23, 42, 0.3);
+    margin-top: 50px;
+    border-radius: 20px 20px 0 0;
+}
+.footer-links a {
+    color: #06B6D4;
+    text-decoration: none;
+    margin: 0 12px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+.footer-links a:hover {
+    color: #8B5CF6;
+    text-shadow: 0 0 8px rgba(139, 92, 246, 0.5);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #020617;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(6, 182, 212, 0.3);
+}
