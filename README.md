@@ -1,9 +1,8 @@
 # 🚦 Smart City Traffic Analytics System
 
 <p align="center">
-  <img src="images/dashboard.png" alt="Smart City Traffic Analytics Dashboard" width="100%">
+  <img src="dashboard.png" width="100%">
 </p>
-
 <p align="center">
   <b>AI-Powered Traffic Analytics & Prediction Platform using Machine Learning</b>
 </p>
