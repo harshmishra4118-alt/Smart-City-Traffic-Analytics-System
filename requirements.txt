@@ -1,7 +1,7 @@
-Flask
-google-generativeai
-python-dotenv
-Pandas
-matplotlib
+streamlit
+pandas
 numpy
-seaborn
+matplotlib
+scikit-learn
+plotly
+joblib
